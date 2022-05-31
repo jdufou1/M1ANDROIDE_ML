@@ -93,8 +93,9 @@ accuracy = (pred == y).mean() * 100
 # Print information
 
 print("----- Test activation 1 -----")
+
 print("DATA : ")
-print("number of sample : ",200)
+print("number of sample : ",len(X))
 print("MODEL : Linear - TanH - Linear - Sigmoide - MSE")
 print("Learning rate : ",learning_rate)
 print("number of iteration : ",nbIter)

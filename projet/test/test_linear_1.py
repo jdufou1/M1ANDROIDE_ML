@@ -76,6 +76,18 @@ print("shape y : ",y.shape)
 print("Loss reached : ",train_loss[-1])
 print("train duration : ",duration,"sec")
 
+
+# Plot the data
+
+plt.figure()
+plt.title("Data")
+plt.xlabel("X")
+plt.ylabel("y")
+plt.scatter(X,y)
+plt.legend()
+plt.show()
+
+
 # Plot the results
 
 plt.figure()

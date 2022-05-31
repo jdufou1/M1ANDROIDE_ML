@@ -14,6 +14,8 @@ import time
 
 from tqdm import tqdm
 
+from mltools import plot_data, plot_frontiere, make_grid, gen_arti
+
 from lib.module.Linear import Linear
 
 from lib.module.TanH import TanH
@@ -25,7 +27,7 @@ from lib.loss.MSEloss import MSEloss
 from sklearn.datasets import make_classification
 
 
-X, y = make_classification(n_samples=200 , n_features=2, n_redundant=0, n_informative=2)
+X, y = gen_arti(data_type=0, epsilon=0.001)
 
 if y.ndim == 1 :
     y = y.reshape((-1,1))
@@ -87,14 +89,14 @@ def prediction(X) :
     return activation2.forward(res3)
 
 pred = prediction(X)
-pred = np.where(pred > 0.5 , 1 , 0)
+pred = np.where(pred > 0.5 , 1 , -1)
 accuracy = (pred == y).mean() * 100
 
 # Print information
 
-print("----- Test activation 1 -----")
-print("DATA : ")
-print("number of sample : ",200)
+print("----- Test activation 3 -----")
+print("DATA : 2 gaussians")
+print("number of sample : ",len(X))
 print("MODEL : Linear - TanH - Linear - Sigmoide - MSE")
 print("Learning rate : ",learning_rate)
 print("number of iteration : ",nbIter)

@@ -14,6 +14,8 @@ import time
 
 from tqdm import tqdm
 
+from mltools import plot_data, plot_frontiere, make_grid, gen_arti
+
 from lib.module.Linear import Linear
 
 from lib.module.TanH import TanH
@@ -22,10 +24,10 @@ from lib.module.Sigmoide import Sigmoide
 
 from lib.loss.MSEloss import MSEloss
 
-from sklearn.datasets import make_moons
+from sklearn.datasets import make_classification
 
 
-X, y = make_moons(n_samples=200 ,noise = 0.05)
+X, y = gen_arti(data_type=1, epsilon=0.001)
 
 if y.ndim == 1 :
     y = y.reshape((-1,1))
@@ -33,7 +35,7 @@ if y.ndim == 1 :
 # Parameters
 
 nbIter = 500
-nbNeurons = 5
+nbNeurons = 6
 learning_rate = 1e-3
 
 linear1 = Linear(X.shape[1],nbNeurons)
@@ -78,7 +80,6 @@ for _ in tqdm(range(nbIter)):
 
 end = time.time()
 duration = end - start
-
 # prediction
 
 def prediction(X) : 
@@ -88,13 +89,13 @@ def prediction(X) :
     return activation2.forward(res3)
 
 pred = prediction(X)
-pred = np.where(pred > 0.5 , 1 , 0)
+pred = np.where(pred > 0.5 , 1 , -1)
 accuracy = (pred == y).mean() * 100
 
 # Print information
 
-print("----- Test activation 2 -----")
-print("DATA : ")
+print("----- Test activation 4 -----")
+print("DATA : XOR")
 print("number of sample : ",len(X))
 print("MODEL : Linear - TanH - Linear - Sigmoide - MSE")
 print("Learning rate : ",learning_rate)

@@ -35,7 +35,7 @@ class Linear(Module):
         return self._forward
 
     def update_parameters(self, learning_rate=1e-3):
-
+        
         self._parameters -= learning_rate*self._gradient
 
         if(self._biais_active):

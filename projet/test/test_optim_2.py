@@ -1,5 +1,5 @@
 """
-Test Activation and Binary classification
+Test Sequential
 Jérémy DUFOURMANTELLE
 """
 
@@ -14,6 +14,12 @@ import time
 
 from tqdm import tqdm
 
+from mltools import gen_arti
+
+from lib.module.Sequential import Sequential
+
+from lib.module.Optim import Optim
+
 from lib.module.Linear import Linear
 
 from lib.module.TanH import TanH
@@ -22,10 +28,7 @@ from lib.module.Sigmoide import Sigmoide
 
 from lib.loss.MSEloss import MSEloss
 
-from sklearn.datasets import make_moons
-
-
-X, y = make_moons(n_samples=200 ,noise = 0.05)
+X, y = gen_arti(data_type=1, epsilon=0.001)
 
 if y.ndim == 1 :
     y = y.reshape((-1,1))
@@ -33,68 +36,45 @@ if y.ndim == 1 :
 # Parameters
 
 nbIter = 500
-nbNeurons = 5
+nbNeurons = 20
 learning_rate = 1e-3
+batch_size = 20
 
 linear1 = Linear(X.shape[1],nbNeurons)
 activation1 = TanH()
 linear2 = Linear(nbNeurons,y.shape[1])
 activation2 = Sigmoide()
+
 loss = MSEloss()
 
 train_loss = []
 
+model = Sequential(linear1 , activation1 , linear2 , activation2)
+
+optim = Optim(model , loss , learning_rate)
+
+
 # model training
 start = time.time()
+
 for _ in tqdm(range(nbIter)):
-            
-    # forward
-    res1 = linear1.forward(X)
-    res2 = activation1.forward(res1)
-    res3 = linear2.forward(res2)
-    res4 = activation2.forward(res3)
-
-    train_loss.append(np.mean(loss.forward(y, res4))) # loss
-
-    # backward
-
-    last_delta = loss.backward(y, res4)
-    delta_sig = activation2.backward_delta(res3, last_delta)
-    delta_lin = linear2.backward_delta(res2, delta_sig)
-    delta_tan = activation1.backward_delta(res1, delta_lin)
-
-    # update gradient
-
-    linear1.backward_update_gradient(X, delta_tan)
-    linear2.backward_update_gradient(res2, delta_sig)
-
-    # upadte parameters
-    linear1.update_parameters(learning_rate)
-    linear2.update_parameters(learning_rate)
-
-    # reinitialisation parameters
-    linear1.zero_grad()
-    linear2.zero_grad()
+    train_loss.append(optim.step(X,y))
 
 end = time.time()
 duration = end - start
-
 # prediction
 
 def prediction(X) : 
-    res1 = linear1.forward(X)
-    res2 = activation1.forward(res1)
-    res3 = linear2.forward(res2)
-    return activation2.forward(res3)
+    return model.forward(X)
 
 pred = prediction(X)
-pred = np.where(pred > 0.5 , 1 , 0)
+pred = np.where(pred > 0.5 , 1 , -1)
 accuracy = (pred == y).mean() * 100
 
 # Print information
 
-print("----- Test activation 2 -----")
-print("DATA : ")
+print("----- Test optim 2 -----")
+print("DATA : XOR")
 print("number of sample : ",len(X))
 print("MODEL : Linear - TanH - Linear - Sigmoide - MSE")
 print("Learning rate : ",learning_rate)
