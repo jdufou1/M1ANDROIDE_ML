@@ -44,8 +44,8 @@ In this part, I show you some experiences with the neural network library that I
 **Regression with simple data :** Here is the data that I have used to train my model.
 
 <div style="display:flex;">
-    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_linear_3.png" alt="drawing" width="50%"/>
-    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_linear_2.png" alt="drawing" width="50%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_linear_3.png" alt="drawing" width="45%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_linear_2.png" alt="drawing" width="45%"/>
 </div>
 
 \
@@ -55,8 +55,8 @@ How you can see, the decision border fits perfectly with the data thanks to the 
 **Binary classification with 2 gaussians :** Here is the data that I have used to train my model.
 
 <div style="display:flex;">
-    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_2.png" alt="drawing" width="50%"/>
-    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_1.png" alt="drawing" width="50%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_2.png" alt="drawing" width="45%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_1.png" alt="drawing" width="45%"/>
 </div>
 
 \
@@ -65,8 +65,8 @@ We see that the decision surface separates perfectly the two gaussians with an a
 **Binary classification with the XOR problem :** Here is the data that I have used to train my model.
 
 <div style="display:flex;">
-    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_4.png" alt="drawing" width="50%"/>
-    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_3.png" alt="drawing" width="50%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_4.png" alt="drawing" width="45%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_activation_3.png" alt="drawing" width="45%"/>
 </div>
 
 \
