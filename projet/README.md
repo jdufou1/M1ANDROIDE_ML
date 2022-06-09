@@ -27,6 +27,7 @@
 Here are the activations functions :
 1. Sigmoide : `./lib/module/Sigmoide.py`
 2. TanH : `./lib/module/TanH.py`
+3. Softmax : `./lib/module/Softmax.py`
 
 
 
@@ -34,6 +35,7 @@ Here are the activations functions :
 
 Here are the cost functions :
 1. MSEloss : `./lib/loss/MSEloss.py`
+2. CEloss : `./lib/loss/CEloss.py`
 
 
 ## Some experiences
@@ -71,7 +73,27 @@ We see that the decision surface separates perfectly the two gaussians with an a
 
 \
 The model has an accuracy of **99.4%** with the XOR problem.
+\
+\
+**Multiclass problem with USPS data :** now, we use the following neural network for multiclass problem : 
+*Linear(X.shape , 256)-TanH()-Linear(256,128)-TanH()-Linear(128,y.shape)-Softmax()-CEloss* 
+\
+Here are some pics of digits from USPS Database (16x16)
 
+<div style="display:flex;">
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_usps_1.png" alt="drawing" width="30%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_usps_2.png" alt="drawing" width="30%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_usps_3.png" alt="drawing" width="30%"/>
+</div>
+
+Now let's see the results of the training :
+<div style="display:flex;">
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_multiclasse_1.png" alt="drawing" width="30%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_multiclasse_2.png" alt="drawing" width="30%"/>
+    <img src="https://github.com/jdufou1/M1ANDROIDE_ML/blob/main/projet/img/img_multiclasse_3.png" alt="drawing" width="30%"/>
+</div>
+
+With this model of neural network , our results are good enough with an accuracy of **91.33%** for the train set and **80.57** for the test set.
 
 ## How to use
 
