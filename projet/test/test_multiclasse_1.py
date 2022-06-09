@@ -57,6 +57,26 @@ uspsdatatest = "../data/USPS_test.txt"
 alltrainx, alltrainy = load_usps(uspsdatatrain)
 alltestx, alltesty = load_usps(uspsdatatest)
 
+"""
+plt.figure(figsize=(5, 5))
+plt.title(f"Image of {alltrainy[0]} from USPS")
+plt.imshow(alltrainx[0].reshape(16, 16))
+plt.gray()
+plt.show()
+
+plt.figure(figsize=(5, 5))
+plt.title(f"Image of {alltrainy[1]} from USPS")
+plt.imshow(alltrainx[1].reshape(16, 16))
+plt.gray()
+plt.show()
+
+plt.figure(figsize=(5, 5))
+plt.title(f"Image of {alltrainy[2]} from USPS")
+plt.imshow(alltrainx[2].reshape(16, 16))
+plt.gray()
+plt.show()
+"""
+
 # hot encoding for multiclasse purpose
 
 y = onehot(alltrainy)
