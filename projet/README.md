@@ -10,17 +10,18 @@
 **Linear module :** you can find the linear module here `./lib/module/Linear.py`. The linear allows to make the forward and backward transition. In this way, you need to compute the gradient and update the parameters in each loop turn of learning. 
 \
 **Sequential module :** you can find the sequential module here `./lib/module/Sequential.py`. This module were implemented to make the learning more easier. This module puts all the layers of the neural network inside a list. So, with the forward and backward methods, we realize the method for all of the modules.
+\
+**Conv module :** conv 1D and 2D have been implemented
+\
+**MaxPool module :** maxpool 1D and 2D have been implemented
+\
+**Flatten module :** This layer allows to link the convolutionnal layers with the fully connected layers.
 
 ## Optimizer
 
 **Optim :** you can find the optim class here `./lib/module/Optim.py`. The goal of this class is to make all of the learning step in one function. So, you just need to make a loop with the `step` method. Then, you can create other child class to fill the update method.
 \
-**SGD optimizer :** you can find the SGD optimizer here `./lib/module/Optim.py`. This class implements the stochatic gradient descent. So, here are the meaning of the batch size value for the `update` function:
-1. batch size = 1 $\implies$ len(mini batch) = len(Xtrain)
-2. batch size $\in$]1;len(Xtrain)[ $\implies$ len(mini batch) = len(Xtrain) / (batch size)
-3. batch size = len(batch) $\implies$ len(mini batch) = 1
-
-
+**SGD optimizer :** you can find the SGD optimizer here `./lib/module/Optim.py`. This class implements the stochatic gradient descent.
 
 ## Activation functions
 
@@ -28,7 +29,7 @@ Here are the activations functions :
 1. Sigmoide : `./lib/module/Sigmoide.py`
 2. TanH : `./lib/module/TanH.py`
 3. Softmax : `./lib/module/Softmax.py`
-
+4. ReLU : `./lib/module/ReLU`
 
 
 ## Cost functions
@@ -36,7 +37,7 @@ Here are the activations functions :
 Here are the cost functions :
 1. MSEloss : `./lib/loss/MSEloss.py`
 2. CEloss : `./lib/loss/CEloss.py`
-
+3. CELogSM : `./lib/loss/CELogSM`
 
 ## Some experiences
 
