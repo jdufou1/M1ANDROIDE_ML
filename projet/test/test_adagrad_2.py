@@ -16,7 +16,7 @@ from mltools import gen_arti
 
 from lib.module.Sequential import Sequential
 
-from lib.module.Optim import SGD
+from lib.module.Optim import AdaGrad
 
 from lib.module.Linear import Linear
 
@@ -35,7 +35,7 @@ if y.ndim == 1 :
 
 nbIter = 100
 nbNeurons = 6
-learning_rate = 1e-3
+learning_rate = 0.01
 batch_size = 20
 
 linear1 = Linear(X.shape[1],nbNeurons)
@@ -49,7 +49,7 @@ train_loss = []
 
 model = Sequential(linear1 , activation1 , linear2 , activation2)
 
-optim = SGD(model , loss , X , y ,batch_size=batch_size,nbIter=nbIter, eps=learning_rate)
+optim = AdaGrad(model , loss , X , y ,batch_size=batch_size,nbIter=nbIter, eps=learning_rate)
 
 # model training
 start = time.time()
@@ -69,7 +69,7 @@ accuracy = (pred == y).mean() * 100
 
 # Print information
 
-print("----- Test sgd 2 -----")
+print("----- Test adagrad 2 -----")
 print("DATA : XOR")
 print("number of sample : ",len(X))
 print("MODEL : Linear - TanH - Linear - Sigmoide - MSE")

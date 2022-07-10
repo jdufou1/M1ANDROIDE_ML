@@ -1,6 +1,5 @@
 """
 Linear module
-Jérémy DUFOURMANTELLE
 """
 
 import numpy as np

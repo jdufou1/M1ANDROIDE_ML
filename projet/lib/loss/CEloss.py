@@ -1,6 +1,5 @@
 """
 Cross Entropique : loss function
-Jérémy DUFOURMANTELLE
 """
 
 import numpy as np

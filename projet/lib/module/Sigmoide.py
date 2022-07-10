@@ -1,6 +1,5 @@
 """
 Sigmoide : activation function
-Jérémy DUFOURMANTELLE
 """
 
 import numpy as np

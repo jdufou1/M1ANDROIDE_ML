@@ -1,6 +1,5 @@
 """
 Test Sequential
-Jérémy DUFOURMANTELLE
 """
 
 import sys

@@ -7,8 +7,6 @@ from collections import OrderedDict
 
 from lib.module.Module import Module
 
-from lib.module.Linear import Linear
-
 class Sequential(Module):
 
     def __init__(self, *args):
