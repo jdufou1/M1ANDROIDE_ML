@@ -45,6 +45,7 @@ class SGD(Optim):
         values = np.arange(size)
         np.random.shuffle(values)
         nb_batch = size // self.batch_size
+        print("nb_batch : ",nb_batch)
         if (size % self.batch_size != 0):
             nb_batch += 1
         for i in range(nb_batch):
